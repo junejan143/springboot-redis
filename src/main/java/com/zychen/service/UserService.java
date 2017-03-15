@@ -1,6 +1,7 @@
 package com.zychen.service;
 
 //import com.zychen.dao.mapper.user.IUserDao;
+import com.zychen.dao.mapper.user.IUserDao;
 import com.zychen.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -15,14 +16,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    //@Autowired
-    //private IUserDao userDao;
+    @Autowired
+    private IUserDao userDao;
     @Autowired
     private RedisTemplate<String, User> redisTemplate;
 
 
     public String addUser(User user) {
-        //userDao.addUser(user);
+        userDao.addUser(user);
         redisTemplate.opsForValue().set(user.getName(),user);
         return "新增成功";
     }
