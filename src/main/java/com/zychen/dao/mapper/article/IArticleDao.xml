@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zychen.dao.mapper.article.IArticleDao">
+    <insert id="saveArticle" parameterType="com.zychen.domain.Article" useGeneratedKeys="true" keyProperty="articleId">
+        INSERT INTO user(articleName, createTime, modifyTime, userId)
+        VALUES (#{articleName}, #{createTime}, #{modifyTime}, #{userId});
+    </insert>
+</mapper>
