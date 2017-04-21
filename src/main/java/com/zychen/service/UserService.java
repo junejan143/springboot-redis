@@ -19,7 +19,7 @@ public class UserService {
     @Autowired
     private IUserDao userDao;
     @Autowired
-    private RedisTemplate<String, User> redisTemplate;
+    private RedisTemplate redisTemplate;
 
 
     public String addUser(User user) {
@@ -28,13 +28,14 @@ public class UserService {
         return "新增成功";
     }
 
-    public Integer getUser(String name) {
-
-        if (exists(name)){
-            return redisTemplate.opsForValue().get(name).getAge();
-        }else {
-            return -9999;
-        }
+    public String getUser(String name) {
+        System.out.println(name);
+        return name;
+        //if (exists(name)){
+        //    return ((User)redisTemplate.opsForValue().get(name)).getAge();
+        //}else {
+        //    return -9999;
+        //}
     }
 
     public String deleteUser(String name) {

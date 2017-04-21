@@ -25,7 +25,7 @@ public class ArticleService {
     @Autowired
     private IArticleDao articleDao;
     @Autowired
-    private RedisTemplate<String, Article> redisTemplate;
+    private RedisTemplate redisTemplate;
 
 
     public Integer saveArticle(Article article) {
